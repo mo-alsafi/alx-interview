@@ -29,6 +29,11 @@ def canUnlockAll(boxes):
     foundedKeys = 0
     index = 0 #iterator of list of resierved keys
 
+    if (type(boxes)) is not list:
+        return False
+    elif (len(boxes)) == 0:
+        return False
+
     for key in boxes[0]: #retrieve the keys on box0 since its open
         if(key < numOfBoxes and key not in keys): #if the key is for box we dont have in boxes list we cant open it so dont add it(like key to box 100 and we only have 7 boxes(indexes)), and dont add duplicate keys
             keys.append(key)
