@@ -26,31 +26,28 @@ def canUnlockAll(boxes):
     """
 
     keys = []
-    numOfBoxes = len(boxes) #equal 7
+    numOfBoxes = len(boxes) 
     foundedKeys = 0
-    index = 0 #iterator of list of resierved keys
+    index = 0 
 
     if (type(boxes)) is not list:
         return False
     elif (len(boxes)) == 0:
         return False
 
-    for key in boxes[0]: #retrieve the keys on box0 since its open
-        if(key < numOfBoxes and key not in keys): #if the key is for box we dont have in boxes list we cant open it so dont add it(like key to box 100 and we only have 7 boxes(indexes)), and dont add duplicate keys
+    for key in boxes[0]: 
+        if(key < numOfBoxes and key not in keys): 
             keys.append(key)
             foundedKeys += 1
 
-    #print(len(keys))  --> to see the keys of box0 which already unlocked
-    while(index < len(keys)): #for now the loop well run for number of keys founded in box0 if we unlock other boxes we well put them here so the length well increase and loop well till we unlock all possible boxess
-        theKey = keys[index] #keys[index] is one key of list of keys it well go to next key after index increase
-        for key in boxes[theKey]: #boxes[theKey] we access a box (list) by it given key (index) and with for key in that box we want to access the key inside that box with out it we get the list
-            #print(key)  --> to see what key we dealing with
-            if(key < numOfBoxes and key not in keys and key > 0): #since the box0 is already opend no need to store the key if we found one
+    while(index < len(keys)): 
+        theKey = keys[index] 
+        for key in boxes[theKey]: 
+            if(key < numOfBoxes and key not in keys and key > 0): 
                 keys.append(key)
                 foundedKeys += 1
         index += 1
 
-    #print(keys, foundedKeys, numOfBoxes-1)
     if(foundedKeys +1 == numOfBoxes):
         return True
     else:
