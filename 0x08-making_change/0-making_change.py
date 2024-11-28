@@ -1,14 +1,15 @@
 #!/usr/bin/python3
 
-"""Contains makeChange function."""
+"""Contains make_change function."""
 
 def make_change(coins, total):
     """
     Returns: fewest number of coins needed to meet total.
-        If total is 0 or less, return 0.
-        If total cannot be met by any number of coins you have, return -1.
+    
+    If total is 0 or less, return 0.
+    If total cannot be met by any number of coins you have, return -1.
     """
-    if not coins or coins is None:
+    if not coins:
         return -1
     if total <= 0:
         return 0
